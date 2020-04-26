@@ -44,6 +44,7 @@ generating a sample with the hyperparameter that delivers the lowest text perple
 ./scripts/generate.sh
 ```
 
-
+Thanks very much for this exercise !  
+It was a lot of fun and really interesting to do 
 
 
