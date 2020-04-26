@@ -1,42 +1,49 @@
-# Pytorch RNN Language Models
+# gradle_moprei21_mt_exercise03
 
-This repo shows how to train neural language models using [Pytorch example code](https://github.com/pytorch/examples/tree/master/word_language_model).
 
-# Requirements
+## Changes  
 
-- This only works on a Unix-like system, with bash.
-- Python 3 must be installed on your system, i.e. the command `python3` must be available
-- Make sure virtualenv is installed on your system. To install, e.g.
+Order of commands that were used:
+forking repo and cloning inside repo  
+```
+git clone https://github.com/moprei21/pytorch-rnn
+```
+  
+creating virualenv and activation
+```
+./scripts/make_virtualenv.sh
+source venvs/torch3/bin/activate
+```
 
-    `pip install virtualenv`
+installing packages
+```
+./scripts/install_packages.s
+```
 
-# Steps
+changing download file from to download new file according to chosen text and then downlading data:
+```
+./scripts/download_data.sh
+```
+ training the new data and changing the hyperparamter --emsize and --nhid as show in the following table
+ ```
+./scripts/train.sh
+```
+| Embedding size        | Text perplexity           |
+| --------------------- |:-------------------------:|
+| 25                    |      217.09               |
+| 50                    |      202.98               |
+| 400                   |      181.39               |
+| 500                   |      178.10               |
+| 300                   |      173.66               |
+| 150                   |      172.36               |
+| 100                   |      171.53               |
+| 200                   |      171.05               |
 
-Clone this repository in the desired place:
+generating a sample with the hyperparameter that delivers the lowest text perplexity
+```
+./scripts/generate.sh
+```
 
-    git clone https://github.com/bricksdont/pytorch-rnn-lm
-    cd pytorch-rnn-lm
 
-Create a new virtualenv that uses Python 3. Please make sure to run this command outside of any virtual Python environment:
 
-    ./scripts/make_virtualenv.sh
 
-**Important**: Then activate the env by executing the `source` command that is output by the shell script above.
-
-Download and install required software:
-
-    ./scripts/install_packages.sh
-
-Download and preprocess data:
-
-    ./scripts/download_data.sh
-
-Train a model:
-
-    ./scripts/train.sh
-
-The training process can be interrupted at any time, and the best checkpoint will always be saved.
-
-Generate (sample) some text from a trained model with:
-
-    ./scripts/generate.sh

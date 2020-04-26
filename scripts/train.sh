@@ -14,6 +14,7 @@ device=""
 
 SECONDS=0
 
+#using emsize:200 and nhid:200 as hyperparameter with lowest text complexity
 (cd $tools/pytorch-examples/word_language_model &&
     CUDA_VISIBLE_DEVICES=$device OMP_NUM_THREADS=$num_threads python main.py --data $data/trump \
         --epochs 40 \
